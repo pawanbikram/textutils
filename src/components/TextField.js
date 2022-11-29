@@ -49,10 +49,8 @@ export default function TextField(props) {
 
     const handleCopyT = () => {
         console.log("Copy Text");
-        let newText = document.getElementById("myBox");
-        newText.select();
-        navigator.clipboard.writeText(newText.value);
-        document.getSelection().removeAllRanges();
+        let newText = text;
+        navigator.clipboard.writeText(newText);
         props.showAlert("Text Copied", "info");
     }
 
@@ -82,8 +80,8 @@ export default function TextField(props) {
                 <h2>{props.summary}</h2>
                 {/* text.split(/\s/g).join("").length or text.replace(/\s/g, "").length */}
                 {/* {console.log(text.split(/\s/).filter((e)=>{return e !== "";}).length)} */}
-                <p>{text.split(/\s/).filter((e) => { return e !== ""; }).length} words, {text.length} characters and {text.split(/\s/g).join("").length} characters without white spaces.</p>
-                <p>{(text.split(/\s/).filter((e) => { return e !== ""; }).length) * 0.008} minutes to read.</p>
+                <p>{text.split(/\s+/).filter((e) => { return e !== ""; }).length} words, {text.length} characters and {text.split(/\s/g).join("").length} characters without white spaces.</p>
+                <p>{(text.split(/\s+/).filter((e) => { return e !== ""; }).length) * 0.008} minutes to read.</p>
             </div>
             <div className="mb-3">
                 <h2>Preview</h2>
