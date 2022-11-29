@@ -29,6 +29,19 @@ function App() {
     }, 1500)
   }
 
+  // const removeBodyClasses = () => {
+  //   document.body.classList.remove('bg-primary');
+  //   document.body.classList.remove('bg-secondary');
+  //   document.body.classList.remove('bg-light');
+  //   document.body.classList.remove('bg-dark');
+  // }
+
+  // const colorPalette = (cls) => {
+  //   removeBodyClasses();
+  //   console.log(cls);
+  //   document.body.classList.add('bg-' + cls);
+  // }
+
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
@@ -58,6 +71,7 @@ function App() {
     <>
       <Router>
         <Navbar title="Textutils" mode={mode} switchMode={switchMode} toggleMode={toggleMode} />
+        {/* <Navbar title="Textutils" mode={mode} switchMode={switchMode} toggleMode={toggleMode} colorPalette={colorPalette} /> */}
         <Alert alert={alert} />
         <Routes>
           <Route path="/" element={<TextField mode={mode} btn={btn} showAlert={showAlert} />}></Route>
